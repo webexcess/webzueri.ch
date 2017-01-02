@@ -1,0 +1,35 @@
+# theme-pastmeetups
+
+# PastMeetups prototype inherits from NextMeetups..
+
+prototype(WebExcess.Theme:PastMeetups) >
+prototype(WebExcess.Theme:PastMeetups) < prototype(WebExcess.BaseTypes:Content) {
+
+	meetupNodes = ${q(site).find('[instanceof WebExcess.Theme:MeetupsArchive]').children('[instanceof WebExcess.Theme:Meetup]').sort('dateTime', 'DESC').get()}
+	@context.meetupNodes = ${this.meetupNodes}
+	firstMeetupNode = ${q(this.meetupNodes).get(0)}
+	@context.firstMeetupNode = ${this.firstMeetupNode}
+
+	content = TYPO3.TypoScript:Collection {
+		collection = ${meetupNodes}
+		itemName = 'meetupNode'
+		itemRenderer = WebExcess.Theme:PastMeetups.MeetupItem
+	}
+
+	@cache {
+		mode = 'cached'
+		maximumLifetime = '3600'
+		entryTag = TYPO3.TypoScript:RawArray {
+			meetupNodes = ${Neos.Caching.nodeTag(meetupNodes)}
+			talkNodes = ${Neos.Caching.nodeTag(q(meetupNodes).find('[instanceof WebExcess.Theme:Talk]').get())}
+		}
+		entryIdentifier = TYPO3.TypoScript:RawArray {
+			node = ${node}
+			editPreviewMode = ${node.context.currentRenderingMode.name}
+		}
+	}
+}
+
+prototype(WebExcess.Theme:PastMeetups.MeetupItem) < prototype(WebExcess.Theme:NextMeetups.MeetupItem) {
+	attributes >
+}

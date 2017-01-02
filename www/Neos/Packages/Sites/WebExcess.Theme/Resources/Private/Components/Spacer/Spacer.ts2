@@ -1,0 +1,7 @@
+# theme-spacer
+
+prototype(WebExcess.Theme:Spacer) >
+prototype(WebExcess.Theme:Spacer) < prototype(WebExcess.BaseTypes:Content) {
+	tagName = 'div'
+	attributes.class.height = ${'spacer-' + q(node).property('height')}
+}

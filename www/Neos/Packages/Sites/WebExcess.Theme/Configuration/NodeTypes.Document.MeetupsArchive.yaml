@@ -1,0 +1,14 @@
+'WebExcess.Theme:MeetupsArchive':
+  superTypes:
+    'WebExcess.BaseTypes:Document': true
+  ui:
+    label: 'Meetups Archive'
+    icon: 'icon-folder-open'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+  constraints:
+    nodeTypes:
+      'WebExcess.BaseTypes:Document': false
+      'TYPO3.Neos:Shortcut': false
+      'WebExcess.Theme:Meetup': true

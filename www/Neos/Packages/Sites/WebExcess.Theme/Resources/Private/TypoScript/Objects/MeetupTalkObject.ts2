@@ -1,0 +1,27 @@
+prototype(WebExcess.Theme:MeetupTalkObject) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'div'
+	attributes.class = 'media'
+
+	content = TYPO3.TypoScript:Array {
+
+		mediaLeft = TYPO3.TypoScript:Tag {
+			tagName = 'div'
+			attributes.class = 'media-left'
+
+			content = ${'<img class="media-object" style="max-width: none;" src="https://twitter.com/' + (!String.isBlank(talkNode.properties.twitterHandle) ? talkNode.properties.twitterHandle : 'webzuerich') + '/profile_image?size=bigger" />'}
+		}
+
+		mediaBody = TYPO3.TypoScript:Tag {
+			tagName = 'div'
+			attributes.class = 'media-body'
+
+			content = TYPO3.TypoScript:Array {
+				title = ${'<h4 class="media-heading">' + talkNode.properties.headingText + '</h4>'}
+				person = ${'<p><a href="https://twitter.com/' + String.replace(talkNode.properties.twitterHandle, '@', '') + '" target="_blank">' + talkNode.properties.personName + '</a></p>'}
+				text = ${talkNode.properties.paragraphText}
+			}
+
+		}
+
+	}
+}

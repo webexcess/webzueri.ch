@@ -1,0 +1,9 @@
+.theme-spacer.spacer-small {
+	height: 5vh;
+}
+.theme-spacer.spacer-medium {
+	height: 10vh;
+}
+.theme-spacer.spacer-large {
+	height: 15vh;
+}

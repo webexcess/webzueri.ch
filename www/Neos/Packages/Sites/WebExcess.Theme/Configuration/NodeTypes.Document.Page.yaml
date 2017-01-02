@@ -1,0 +1,5 @@
+'WebExcess.BaseTypes:Page':
+  constraints:
+    nodeTypes:
+      'WebExcess.BaseTypes:Document': false
+      'TYPO3.Neos:Shortcut': false

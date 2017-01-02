@@ -1,0 +1,28 @@
+# basetype-home
+
+prototype(WebExcess.BaseTypes:Home) {
+	body {
+		layoutName = 'Home'
+
+		parts.pages = TYPO3.TypoScript:Collection {
+			collection = ${q(node).children('[instanceof WebExcess.BaseTypes:Page][hiddenInAggregation=false],[instanceof WebExcess.Theme:Meetups][hiddenInAggregation=false]').sortRecursiveByIndex('ASC').get()}
+			itemName = 'node'
+			itemRenderer = TYPO3.TypoScript:Case {
+				isMeetups {
+					condition = ${node.nodeType.name == 'WebExcess.Theme:Meetups'}
+					renderer = WebExcess.BaseTypes:PageObject.Body {
+						layoutName = 'HomeSection'
+						javascripts >
+					}
+				}
+				defaultIsPage {
+					condition = ${true}
+					renderer = WebExcess.BaseTypes:PageObject.Body {
+						layoutName = 'HomeSection'
+						javascripts >
+					}
+				}
+			}
+		}
+	}
+}

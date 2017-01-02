@@ -1,0 +1,6 @@
+# basetype-heading
+
+# overwrite the heading behaviour because we have a-tags in there..
+prototype(WebExcess.BaseTypes:HeadingObject) {
+	content.@process.10 >
+}

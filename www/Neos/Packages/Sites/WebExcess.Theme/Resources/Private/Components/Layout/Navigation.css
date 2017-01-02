@@ -1,0 +1,56 @@
+nav.side-menu {
+	display: block;
+	position: fixed;
+	bottom: 30px;
+	right: 30px;
+	width: auto;
+	background-color: transparent;
+	z-index: 888;
+}
+
+nav.side-menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav.side-menu li {
+	text-align: right;
+	margin: 10px 0;
+}
+
+nav.side-menu a,
+nav.side-menu a:hover {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	background-color: var(--red);
+	color: var(--white);
+	text-transform: uppercase;
+	font-weight: 600;
+	border-radius: 3px;
+	padding: 3px 10px;
+	margin: 0 30px 0 0;
+	font-size: 0.9em;
+}
+
+nav.side-menu a:after {
+	content: '';
+	display: inline-block;
+	width: 9px;
+	height: 9px;
+	border-radius: 9px;
+	background-color: var(--red);
+	position: absolute;
+	right: -25px;
+	top: 8px;
+}
+
+nav.side-menu a:hover:after,
+nav.side-menu li.current a:after {
+	width: 15px;
+	height: 15px;
+	border-radius: 15px;
+	right: -28px;
+	top: 5px;
+}

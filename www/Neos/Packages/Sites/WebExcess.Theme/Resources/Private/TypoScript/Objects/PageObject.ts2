@@ -1,0 +1,62 @@
+prototype(WebExcess.BaseTypes:PageObject) {
+
+	head {
+		mobileMetaTags = TYPO3.TypoScript:Array {
+			xua = '<meta http-equiv="X-UA-Compatible" content="IE=edge">'
+			viewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
+		}
+		stylesheets {
+			bootstrap = TYPO3.TypoScript:Tag {
+				tagName = 'link'
+				attributes {
+					rel = 'stylesheet'
+					href = TYPO3.TypoScript:ResourceUri {
+						path = 'resource://WebExcess.Theme/Public/Bootstrap.css'
+						@process.assetVersion = ${value + '?v=' + Configuration.setting('WebExcess.Theme.AssetVersion')}
+					}
+				}
+			}
+			main = TYPO3.TypoScript:Tag {
+				tagName = 'link'
+				attributes {
+					rel = 'stylesheet'
+					href = TYPO3.TypoScript:ResourceUri {
+						path = 'resource://WebExcess.Theme/Public/Main.css'
+						@process.assetVersion = ${value + '?v=' + Configuration.setting('WebExcess.Theme.AssetVersion')}
+					}
+				}
+			}
+#			ext1 = '<link href="http://webzueri.ch/css/style.css" rel="stylesheet">'
+#			ext2 = '<link href="http://webzueri.ch/css/themify-icons.css" rel="stylesheet">'
+#			ext3 = '<link href="http://webzueri.ch/css/dosis-font.css" rel="stylesheet" type="text/css">'
+		}
+		javascripts {
+			main = TYPO3.TypoScript:Tag {
+				tagName = 'script'
+				attributes {
+					src = TYPO3.TypoScript:ResourceUri {
+						path = 'resource://WebExcess.Theme/Public/Main.js'
+						@process.assetVersion = ${value + '?v=' + Configuration.setting('WebExcess.Theme.AssetVersion')}
+					}
+				}
+			}
+		}
+	}
+
+}
+
+prototype(WebExcess.BaseTypes:PageObject.Body) {
+	layoutRootPath = 'resource://WebExcess.Theme/Private/Templates/Layouts'
+	partialRootPath = 'resource://WebExcess.Theme/Private/Templates/Partials'
+
+	parts.header = TYPO3.TypoScript:Array {
+		menu = TYPO3.Neos:Menu {
+			templatePath = 'resource://WebExcess.Theme/Private/Templates/TypoScriptObjects/Menu.html'
+			maximumLevels = 1
+		}
+	}
+
+	parts.footer = TYPO3.TypoScript:Array {
+		credits = '<p>© 2017, WebZürich. Template by <a href="http://www.designerdada.com" target="_blank">DesignerDada.com</a>, implemented for <a href="https://neos.io" target="_blank">Neos</a> by <a href="https://webexcess.ch" target="_blank">webexcess</a> - checkout on <a href="https://github.com/">GitHub</a>.</p>'
+	}
+}

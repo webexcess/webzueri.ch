@@ -1,0 +1,63 @@
+'WebExcess.Theme:Meetup':
+  superTypes:
+    'WebExcess.BaseTypes:Document': true
+  ui:
+    label: 'Meetup'
+    icon: 'icon-calendar-o'
+    inspector:
+      groups:
+        meetup:
+          label: 'Meetup'
+          icon: 'icon-calendar'
+  childNodes:
+    main:
+      type: 'TYPO3.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          'WebExcess.Theme:Talk': true
+          '*': false
+  constraints:
+    nodeTypes:
+      '*': false
+#      'TYPO3.Neos:Shortcut': false
+#      'WebExcess.Theme:Talk': true
+  properties:
+    dateTime:
+      type: DateTime
+      defaultValue: 'today midnight'
+      ui:
+        label: 'Date and Time'
+        inspector:
+          group: 'meetup'
+          position: 10
+          editorOptions:
+            format: 'd.m.Y H:i'
+    locationName:
+      type: string
+      ui:
+        label: 'Location Name'
+        inspector:
+          group: 'meetup'
+          position: 20
+    locationLink:
+      type: string
+      ui:
+        label: 'Location Link'
+        inspector:
+          group: 'meetup'
+          position: 30
+          editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
+          editorOptions:
+            assets: FALSE
+            nodeTypes: []
+    meetupLink:
+      type: string
+      ui:
+        label: 'meetup.com Link'
+        inspector:
+          group: 'meetup'
+          position: 40
+          editor: 'TYPO3.Neos/Inspector/Editors/LinkEditor'
+          editorOptions:
+            assets: FALSE
+            nodeTypes: []

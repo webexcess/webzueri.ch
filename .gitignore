@@ -1,0 +1,10 @@
+.idea
+docker
+node_modules
+Nine.php
+PackageStates.php
+Settings.yaml
+IncludeCachedConfigurations.php
+www/Neos/Packages/Application
+www/Neos/Packages/Plugins
+www/Neos/Packages/Sites/WebExcess.Theme/Resources/Public/jspm_packages

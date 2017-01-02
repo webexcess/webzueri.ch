@@ -1,0 +1,36 @@
+prototype(WebExcess.Theme:MeetupInfoObject) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'p'
+
+	meetupNode = ${meetupNode}
+	@context.meetupNode = ${this.meetupNode}
+	isInFuture = ${this.meetupNode.properties.dateTime.timestamp > Date.now().timestamp ? true : false}
+	@context.isInFuture = ${this.isInFuture}
+
+	@ignoreProperties = ${['meetupNode', 'isInFuture']}
+
+	content = TYPO3.TypoScript:Array {
+		theFuture = TYPO3.TypoScript:Array {
+			date = ${'<strong>When:&nbsp;</strong>' + Date.format(meetupNode.properties.dateTime, 'd.m.Y H:i')}
+
+			locationAndLink = ${' / <strong>Where:&nbsp;</strong><a href="' + meetupNode.properties.locationLink + '" target="_blank">' + meetupNode.properties.locationName + '</a>'}
+			locationAndLink.@if.hasLocationNameAndLink = ${!String.isBlank(meetupNode.properties.locationName) && !String.isBlank(meetupNode.properties.locationLink)}
+
+			locationOnly = ${' / <strong>Where:&nbsp;</strong>' + meetupNode.properties.locationName}
+			locationOnly.@if.hasOnlyLocationName = ${!String.isBlank(meetupNode.properties.locationName) && String.isBlank(meetupNode.properties.locationLink)}
+
+			meetup = ${' / <strong>Register:&nbsp;</strong><a href="' + meetupNode.properties.meetupLink + '" target="_blank">meetup.com</a>'}
+			meetup.@if.hasMeetupLink = ${!String.isBlank(meetupNode.properties.meetupLink)}
+
+			@if.isInFuture = ${isInFuture == true}
+		}
+
+		thePast = TYPO3.TypoScript:Array {
+			title = ${'<h3>' + Date.format(meetupNode.properties.dateTime, 'F Y') + '</h3>'}
+
+			meetup = ${'<strong>Review and comments:&nbsp;</strong><a href="' + meetupNode.properties.meetupLink + '" target="_blank">meetup.com</a>'}
+			meetup.@if.hasMeetupLink = ${!String.isBlank(meetupNode.properties.meetupLink)}
+
+			@if.isNotInFuture = ${isInFuture == false}
+		}
+	}
+}

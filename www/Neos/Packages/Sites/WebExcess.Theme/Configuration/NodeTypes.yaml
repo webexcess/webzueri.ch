@@ -1,0 +1,58 @@
+# theme-spacer
+
+'WebExcess.Theme:Spacer':
+  superTypes:
+    'WebExcess.BaseTypes:Content': true
+  ui:
+    label: 'Spacer'
+    group: 'structure'
+    icon: icon-sort
+    inspector:
+      groups:
+        spacer:
+          label: 'Spacer'
+          icon: icon-sort
+          tab: default
+  properties:
+    height:
+      type: string
+      defaultValue: 'medium'
+      ui:
+        label: 'Height'
+        inlineEditable: false
+        reloadIfChanged: true
+        inspector:
+          group: 'spacer'
+          editor: 'TYPO3.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'small':
+                label: 'Small'
+              'medium':
+                label: 'Medium'
+              'large':
+                label: 'Large'
+
+      constraints:
+        nodeTypes:
+          'WebExcess.Theme:Talk': true
+          '*': false
+
+'TYPO3.Neos:ContentCollection':
+  constraints:
+    nodeTypes:
+      'WebExcess.Theme:Talk': false
+
+# basetype-document
+
+'WebExcess.BaseTypes:Document':
+  properties:
+    hiddenInAggregation:
+      type: boolean
+      defaultValue: false
+      ui:
+        label: 'Hide in aggregation'
+        reloadPageIfChanged: TRUE
+        inspector:
+          group: 'visibility'
+          position: 50

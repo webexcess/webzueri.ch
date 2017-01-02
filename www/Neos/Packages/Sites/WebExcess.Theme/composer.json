@@ -1,0 +1,21 @@
+{
+    "description": "Add description here",
+    "type": "typo3-flow-site",
+    "require": {
+        "webexcess/basetypes": "*"
+    },
+    "suggest": {
+        "typo3/neos-seo": "*"
+    },
+    "name": "webexcess/theme",
+    "autoload": {
+        "psr-0": {
+            "WebExcess\\Theme": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "WebExcess.Theme"
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+@custom-selector :--text p, span, strong;
+@custom-selector :--element h1, h2, h3, p, ul, ol, blockquote, .container;
+@custom-selector :--formfields label, input, textarea, option, legend, form button;
+
+:root {
+    --orange: #FFA500;
+    --red: #dd5138;
+    --black: #2a2a2a;
+    --blacknight: #000;
+    --white: #f1f1f1;
+    --pearlwhite: #fff;
+    --grey: #ccc;
+}

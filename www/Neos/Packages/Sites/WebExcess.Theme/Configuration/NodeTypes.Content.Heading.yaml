@@ -1,0 +1,7 @@
+'WebExcess.BaseTypes:Heading':
+  properties:
+    headingText:
+      ui:
+        aloha:
+          'link':
+            'a': true

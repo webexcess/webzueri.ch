@@ -1,0 +1,10 @@
+# theme-pastmeetups
+
+'WebExcess.Theme:PastMeetups':
+  superTypes:
+    'WebExcess.BaseTypes:Content': true
+    'WebExcess.BaseTypes:Paragraph.ui': true
+  ui:
+    label: 'Past Meetups'
+    icon: 'icon-calendar'
+    group: 'themetypes'

@@ -1,0 +1,8 @@
+'WebExcess.BaseTypes:Home':
+  constraints:
+    nodeTypes:
+      'WebExcess.BaseTypes:Document': false
+      'WebExcess.BaseTypes:Page': true
+      'TYPO3.Neos:Shortcut': true
+      'WebExcess.Theme:Meetups': true
+      'WebExcess.Theme:MeetupsArchive': true

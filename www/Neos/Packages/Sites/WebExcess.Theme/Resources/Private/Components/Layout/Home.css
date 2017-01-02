@@ -1,0 +1,21 @@
+.hero-header {
+	background: #016cc7;
+	min-height: 600px;
+	padding: 5em;
+	color: #fff;
+}
+
+.hero-header h1,
+.hero-header h2 {
+	text-align: left;
+}
+
+.hero-header a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.hero-header a:hover {
+	color: #fff;
+	text-decoration: none;
+}

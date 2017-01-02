@@ -1,0 +1,39 @@
+html, body {
+	min-height: 100%;
+	min-width: 100%;
+	background-color: var(--black);
+	color: var(--black);
+}
+html {
+	background-color: var(--black);
+}
+body {
+	background-color: var(--pearlwhite);
+}
+body.neos-backend {
+	min-width: 50vw !important;
+}
+
+section {
+	lost-utility: clearfix;
+}
+
+img {
+	max-width: 100%;
+}
+
+.container {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.basetype-grid {
+	text-align: center;
+}
+
+.tab-pane {
+	padding-top: 2em;
+}
+.nav-link {
+	font-size: 1.1em;
+}

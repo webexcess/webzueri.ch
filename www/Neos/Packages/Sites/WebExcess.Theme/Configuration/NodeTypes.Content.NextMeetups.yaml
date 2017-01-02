@@ -1,0 +1,10 @@
+# theme-nextmeetups
+
+'WebExcess.Theme:NextMeetups':
+  superTypes:
+    'WebExcess.BaseTypes:Content': true
+    'WebExcess.BaseTypes:Paragraph.ui': true
+  ui:
+    label: 'Next Meetups'
+    icon: 'icon-calendar'
+    group: 'themetypes'

@@ -1,0 +1,54 @@
+# basetype-paragraph
+
+prototype(WebExcess.Theme:Talk) >
+prototype(WebExcess.Theme:Talk) < prototype(WebExcess.BaseTypes:Content) {
+	content = TYPO3.TypoScript:Array {
+
+		mediaLeft = TYPO3.TypoScript:Tag {
+			tagName = 'div'
+			attributes.class = 'media-left'
+			content = ${'<img class="media-object" style="max-width: none; width: 73px;" src="' + (!String.isBlank(node.properties.twitterHandle) ? 'https://twitter.com/' + node.properties.twitterHandle + '/profile_image?size=bigger' : '/_Resources/Static/Packages/TYPO3.Neos/Images/dummy-image.png') + '" />'}
+		}
+
+		mediaBody = TYPO3.TypoScript:Tag {
+			tagName = 'div'
+			attributes.class = 'media-body'
+
+			content = TYPO3.TypoScript:Array {
+				title = TYPO3.TypoScript:Tag {
+					tagName = 'div'
+					content = ${q(node).property('headingText')}
+					content.@process.10 = ${String.stripTags(value)}
+					@process.contentElementEditable = TYPO3.Neos:ContentElementEditable
+					@process.contentElementEditable.property = 'headingText'
+					@process.wrap = ${'<h4 class="media-heading">' + value + '</h4>'}
+				}
+
+				person = TYPO3.TypoScript:Tag {
+					tagName = 'div'
+					content = ${q(node).property('personName')}
+					content.@process.10 = ${String.stripTags(value)}
+					@process.contentElementEditable = TYPO3.Neos:ContentElementEditable
+					@process.contentElementEditable.property = 'personName'
+				}
+
+				twitter = TYPO3.TypoScript:Tag {
+					tagName = 'div'
+					content = ${q(node).property('twitterHandle')}
+					content.@process.10 = ${String.stripTags(value)}
+					@process.contentElementEditable = TYPO3.Neos:ContentElementEditable
+					@process.contentElementEditable.property = 'twitterHandle'
+				}
+
+				text = TYPO3.TypoScript:Tag {
+					tagName = 'div'
+					content = ${q(node).property('paragraphText')}
+					@process.contentElementEditable = TYPO3.Neos:ContentElementEditable
+					@process.contentElementEditable.property = 'paragraphText'
+				}
+			}
+
+		}
+
+	}
+}

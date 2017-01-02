@@ -1,0 +1,21 @@
+footer {
+	margin-top: 30px;
+	background-color: var(--black);
+	color: var(--grey);
+}
+
+.footer-credit {
+	padding: 40px;
+}
+
+footer p {
+	margin: 0;
+}
+
+footer a {
+	color: var(--grey);
+	text-decoration: underline;
+}
+footer a:hover {
+	color: var(--red);
+}

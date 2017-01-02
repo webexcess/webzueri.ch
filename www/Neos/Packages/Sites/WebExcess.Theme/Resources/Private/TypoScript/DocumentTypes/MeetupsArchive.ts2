@@ -1,0 +1,12 @@
+# basetype-page
+
+prototype(WebExcess.Theme:MeetupsArchive) >
+prototype(WebExcess.Theme:MeetupsArchive) < prototype(WebExcess.BaseTypes:PageObject) {
+
+	bodyTag.attributes.class {
+		pageClass = "theme-meetups-archive"
+	}
+
+}
+
+prototype(WebExcess.Theme:MeetupsArchive.Document) < prototype(WebExcess.Theme:MeetupsArchive)

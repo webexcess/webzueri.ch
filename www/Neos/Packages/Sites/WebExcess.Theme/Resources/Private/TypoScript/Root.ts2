@@ -1,0 +1,12 @@
+include: Objects/**/*.ts2
+include: ContentTypes/**/*.ts2
+include: DocumentTypes/**/*.ts2
+include: ../Components/**/*.ts2
+
+prototype(WebExcess.BaseTypes:Content) {
+	attributes {
+		class {
+			nodeTypeName.@process.40 = ${String.replace(value, 'webexcess-', '')}
+		}
+	}
+}

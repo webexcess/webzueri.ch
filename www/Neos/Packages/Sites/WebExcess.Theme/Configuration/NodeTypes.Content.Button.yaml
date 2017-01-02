@@ -1,0 +1,26 @@
+# basetype-button
+
+'WebExcess.BaseTypes:Button':
+  properties:
+    buttonStyle:
+      defaultValue: 'btn-default'
+      ui:
+        inspector:
+          editorOptions:
+            values:
+              'btn-default':
+                label: 'Default'
+              'btn-primary':
+                label: 'Primary'
+              'btn-danger':
+                label: 'Danger'
+              'btn-link':
+                label: 'Link'
+              'btn-default btn-lg':
+                label: 'Default Large'
+              'btn-primary btn-lg':
+                label: 'Primary Large'
+              'btn-danger btn-lg':
+                label: 'Danger Large'
+              'btn-link btn-lg':
+                label: 'Link Large'

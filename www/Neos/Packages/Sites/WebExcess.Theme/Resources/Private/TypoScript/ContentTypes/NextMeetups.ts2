@@ -1,0 +1,68 @@
+# theme-nextmeetups
+
+prototype(WebExcess.Theme:NextMeetups) >
+prototype(WebExcess.Theme:NextMeetups) < prototype(WebExcess.BaseTypes:Content) {
+
+	meetupNodes = ${q(site).find('[instanceof WebExcess.Theme:Meetups]').children('[instanceof WebExcess.Theme:Meetup]').sortRecursiveByIndex('ASC').get()}
+	@context.meetupNodes = ${this.meetupNodes}
+	firstMeetupNode = ${q(this.meetupNodes).get(0)}
+	@context.firstMeetupNode = ${this.firstMeetupNode}
+
+	content = TYPO3.TypoScript:Array {
+		backendInfo = '<strong>Remember, </strong>add/update "Meetup"-Pages in the "Meetups"-Page, and add/update "Talk"-ContentElements in the "Meetup"-Page.'
+		backendInfo.@process.wrap = ${'<div class="alert alert-info" role="alert" style="position: relative; z-index: 10001">' + value + '</div>'}
+		backendInfo.@if.isBackend = ${!isLive}
+
+		tabs = TYPO3.TypoScript:Collection {
+			collection = ${meetupNodes}
+			itemName = 'meetupNode'
+			itemRenderer = ${'<li class="nav-item"><a class="nav-link' + (meetupNode.identifier == firstMeetupNode.identifier ? ' active' : '') + '" href="#' + meetupNode.identifier + '" role="tab" data-toggle="tab" title="' + meetupNode.properties.title + '">' + Date.format(meetupNode.properties.dateTime, 'd') + '<sup>th</sup> ' + Date.format(meetupNode.properties.dateTime, 'F') + '</a></li>'}
+			@process.wrap = ${'<ul class="nav nav-tabs" role="tablist">' + value + '</ul>'}
+		}
+		panels = TYPO3.TypoScript:Collection {
+			collection = ${meetupNodes}
+			itemName = 'meetupNode'
+			itemRenderer = WebExcess.Theme:NextMeetups.MeetupItem
+			@process.wrap = ${'<div class="tab-content">' + value + '</div>'}
+		}
+	}
+
+	@cache {
+		mode = 'cached'
+		maximumLifetime = '3600'
+		entryTag = TYPO3.TypoScript:RawArray {
+			meetupNodes = ${Neos.Caching.nodeTag(meetupNodes)}
+			talkNodes = ${Neos.Caching.nodeTag(q(meetupNodes).find('[instanceof WebExcess.Theme:Talk]').get())}
+		}
+		entryIdentifier = TYPO3.TypoScript:RawArray {
+			node = ${node}
+			editPreviewMode = ${node.context.currentRenderingMode.name}
+		}
+	}
+}
+
+prototype(WebExcess.Theme:NextMeetups.MeetupItem) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'div'
+
+	attributes.id = ${meetupNode.identifier}
+	attributes.role = 'tabpanel'
+	attributes.class = ${'tab-pane fade' + (meetupNode.identifier == firstMeetupNode.identifier ? ' in active' : '')}
+
+	talkNodes = ${q(meetupNode).find('[instanceof WebExcess.Theme:Talk]').get()}
+	@context.talkNodes = ${this.talkNodes}
+
+	content = TYPO3.TypoScript:Array {
+		info = WebExcess.Theme:MeetupInfoObject
+
+		talks = TYPO3.TypoScript:Collection {
+			collection = ${talkNodes}
+			itemName = 'talkNode'
+			itemRenderer = TYPO3.TypoScript:Tag {
+				tagName = 'div'
+				attributes.class = 'col-sm-4'
+				content = WebExcess.Theme:MeetupTalkObject
+			}
+			@process.wrap = ${'<div class="row">' + value + '</div>'}
+		}
+	}
+}

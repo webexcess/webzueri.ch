@@ -1,0 +1,51 @@
+# theme-talk
+
+'WebExcess.Theme:Talk':
+  superTypes:
+    'WebExcess.BaseTypes:Content': true
+    'WebExcess.BaseTypes:Paragraph.ui': true
+    'WebExcess.BaseTypes:Heading.properties.headingText--inplace': true
+    'WebExcess.BaseTypes:Paragraph.properties.paragraphText--inplace': true
+  ui:
+    label: 'Talk'
+    icon: 'icon-user'
+    group: 'themetypes'
+  properties:
+    'headingText':
+      ui:
+        aloha:
+          placeholder: 'Talk Title'
+    'paragraphText':
+      ui:
+        aloha:
+          placeholder: 'Talk Description'
+    'personName':
+      ui:
+        inlineEditable: true
+        aloha:
+          placeholder: 'Speaker Name'
+          'format': []
+          'table': []
+          'link': []
+          'list': []
+          'alignment': []
+          'formatlesspaste':
+            'button': false
+            'formatlessPasteOption': true
+            'strippedElements': ['a', 'br']
+            'autoparagraph': false
+    'twitterHandle':
+      ui:
+        inlineEditable: true
+        aloha:
+          placeholder: '@handle'
+          'format': []
+          'table': []
+          'link': []
+          'list': []
+          'alignment': []
+          'formatlesspaste':
+            'button': false
+            'formatlessPasteOption': true
+            'strippedElements': ['a', 'br']
+            'autoparagraph': false

@@ -1,0 +1,19 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+
+<section class="container-fluid" data-node-identifier="{node.identifier}" data-node-url="{neos:uri.node(node: node)}">
+	<div class="row hero-header">
+		<div class="col-md-7">
+			<main{mainAttributes -> f:format.raw()}>
+				<f:render section="Content" />
+			</main>
+		</div>
+	</div>
+</section>
+<div class="sub-pages">
+	{parts.pages -> f:format.raw()}
+</div>
+
+<nav class="side-menu">
+	{parts.header -> f:format.raw()}
+</nav>
+<f:render partial="Footer" arguments="{_all}" />

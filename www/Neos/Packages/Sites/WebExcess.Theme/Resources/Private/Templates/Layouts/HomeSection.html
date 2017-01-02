@@ -1,0 +1,7 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+
+<section class="container" data-node-identifier="{node.identifier}" data-node-url="{neos:uri.node(node: node)}">
+	<main{mainAttributes -> f:format.raw()}>
+		<f:render section="Content" />
+	</main>
+</section>
