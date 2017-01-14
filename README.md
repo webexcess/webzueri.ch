@@ -1,5 +1,9 @@
 # webzueri.ch/neos
 
+**Contribution**
+
+Please feel free to make pull requests or report issues!
+
 **Backend development**
 
 Run the prepared docker environment for local development:
