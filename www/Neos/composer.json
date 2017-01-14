@@ -33,7 +33,8 @@
     "jonnitto/plyr": "^0.2.4",
     "moc/imageoptimizer": "~2.0",
     "typo3/flow": "^3.3",
-    "webexcess/basetypes": "^0.0.6"
+    "webexcess/basetypes": "^0.0.6",
+    "dotpulse/outdatedbrowser": "^0.1.8"
   },
   "require-dev": {
     "typo3/buildessentials": "3.3.x-dev",

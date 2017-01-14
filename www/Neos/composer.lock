@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a4206965823642a57743434f8099e3fb",
-    "content-hash": "7135749efd9140241ec3bf2221691cba",
+    "hash": "b46c6f81496316cb63a6048502c58832",
+    "content-hash": "c4d36550572126da5708d95d2b222a88",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -714,6 +714,56 @@
                 "orm"
             ],
             "time": "2016-12-18 15:42:34"
+        },
+        {
+            "name": "dotpulse/outdatedbrowser",
+            "version": "0.1.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dotpulse/Dotpulse.OutdatedBrowser.git",
+                "reference": "13e6d38a10da846c8b424cb41483018e5cce333d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dotpulse/Dotpulse.OutdatedBrowser/zipball/13e6d38a10da846c8b424cb41483018e5cce333d",
+                "reference": "13e6d38a10da846c8b424cb41483018e5cce333d",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/neos": "2.*"
+            },
+            "type": "typo3-flow-plugin",
+            "extra": {
+                "marketplace-account": "neos@dotpulse.ch",
+                "installer-name": "Dotpulse.OutdatedBrowser",
+                "neos": {
+                    "package-key": "Dotpulse.OutdatedBrowser"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Dotpulse\\OutdatedBrowser": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jon Uhlmann",
+                    "email": "jon.uhlmann@dotpulse.ch",
+                    "homepage": "https://twitter.com/jonnitto",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Outdated Browser for Neos CMS",
+            "keywords": [
+                "Neos",
+                "flow",
+                "outdated browser"
+            ],
+            "time": "2017-01-11 08:46:05"
         },
         {
             "name": "flownative/neos-compressor",
@@ -2532,6 +2582,7 @@
                 "MIT"
             ],
             "description": "The Embedded Expression Language (Eel) is a building block for creating Domain Specific Languages",
+            "abandoned": "neos/eel",
             "time": "2016-10-29 08:02:34"
         },
         {
@@ -2597,6 +2648,7 @@
             ],
             "description": "Flow Application Framework",
             "homepage": "http://flow.typo3.org",
+            "abandoned": "neos/flow",
             "time": "2016-12-05 16:04:51"
         },
         {
@@ -2660,6 +2712,7 @@
                 "LGPL-3.0+"
             ],
             "description": "Extensible and flexible API for building web forms",
+            "abandoned": "neos/form",
             "time": "2016-10-10 10:53:13"
         },
         {
@@ -2691,6 +2744,7 @@
                 "GPL-3.0+"
             ],
             "description": "Provides a Flow factory for the imagine library",
+            "abandoned": "neos/imagine",
             "time": "2015-05-10 20:10:53"
         },
         {
@@ -2721,6 +2775,7 @@
                 "MIT"
             ],
             "description": "A simple generator for controller and views.",
+            "abandoned": "neos/kickstarter",
             "time": "2016-08-22 14:44:27"
         },
         {
@@ -2752,6 +2807,7 @@
                 "GPL-3.0+"
             ],
             "description": "The Media package",
+            "abandoned": "neos/media",
             "time": "2016-12-05 14:06:28"
         },
         {
@@ -2805,6 +2861,7 @@
                 "GPL-3.0+"
             ],
             "description": "An open source Content Application Platform based on Flow. A set of core Content Management features is resting within a larger context that allows you to build a perfectly customized experience for your users.",
+            "abandoned": "neos/neos",
             "time": "2016-12-05 16:31:33"
         },
         {
@@ -2837,6 +2894,7 @@
                 "GPL-3.0+"
             ],
             "description": "A simple generator for Neos assets, like sites and plugins.",
+            "abandoned": "neos/site-kickstarter",
             "time": "2016-11-27 10:04:32"
         },
         {
@@ -2868,6 +2926,7 @@
                 "GPL-3.0+"
             ],
             "description": "Node type configuration for Neos",
+            "abandoned": "neos/nodetypes",
             "time": "2016-11-17 14:31:08"
         },
         {
@@ -2898,6 +2957,7 @@
                 "GPL-3.0+"
             ],
             "description": "SEO configuration and tools for TYPO3 Neos",
+            "abandoned": "neos/seo",
             "time": "2016-11-17 10:08:40"
         },
         {
@@ -2928,6 +2988,7 @@
                 "LGPL-3.0+"
             ],
             "description": "A PHP implementation of the OASIS Customer Information Quality (CIQ) XML Standard.",
+            "abandoned": "neos/party",
             "time": "2016-06-28 08:44:42"
         },
         {
@@ -2960,6 +3021,7 @@
                 "LGPL-3.0+"
             ],
             "description": "An extensible setup tool for TYPO3 Flow based applications",
+            "abandoned": "neos/setup",
             "time": "2016-09-21 14:00:24"
         },
         {
@@ -3026,6 +3088,7 @@
                 "Apache-2.0"
             ],
             "description": "Simple and flexible HTML, CSS, and Javascript for popular user interface components and interactions. Packaged for use with TYPO3 Flow",
+            "abandoned": "neos/twitter-bootstrap",
             "time": "2015-06-11 09:19:56"
         },
         {
@@ -3058,6 +3121,7 @@
                 "GPL-3.0+"
             ],
             "description": "Content repository based on Flow, specifically made for Neos.",
+            "abandoned": "neos/content-repository",
             "time": "2016-12-05 13:40:42"
         },
         {
@@ -3088,6 +3152,7 @@
                 "GPL-3.0+"
             ],
             "description": "TypoScript is a hierarchical, prototype based processing language",
+            "abandoned": "neos/fusion",
             "time": "2016-11-27 10:04:32"
         },
         {
