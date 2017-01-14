@@ -27,7 +27,8 @@ img {
 	padding-bottom: 30px;
 }
 
-.basetype-grid {
+.basetype-grid,
+.basetype-grid :--heading {
 	text-align: center;
 }
 

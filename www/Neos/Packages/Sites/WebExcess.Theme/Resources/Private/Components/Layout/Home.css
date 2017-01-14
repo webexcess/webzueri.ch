@@ -1,21 +1,48 @@
 .hero-header {
 	background: #016cc7;
-	min-height: 600px;
-	padding: 5em;
+	min-height: auto;
+	padding: 3rem 1rem;
 	color: #fff;
+
+	:--heading {
+		text-align: center;
+	}
+
+	h1 {
+		padding-bottom: 1rem;
+	}
+
+	h4 {
+		color: var(--white);
+		opacity: 0.7;
+		padding-top: 2rem;
+		padding-bottom: 3rem;
+	}
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
-.hero-header h1,
-.hero-header h2 {
-	text-align: left;
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.hero-header {
+		min-height: 600px;
+		padding: 5em;
+	}
+
+	.hero-header :--heading {
+		text-align: left;
+	}
 }
 
-.hero-header a {
-	color: #fff;
-	text-decoration: none;
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
 }
-
-.hero-header a:hover {
-	color: #fff;
-	text-decoration: none;
-}
+*/

@@ -5,7 +5,7 @@ prototype(WebExcess.BaseTypes:Home) {
 		layoutName = 'Home'
 
 		parts.pages = TYPO3.TypoScript:Collection {
-			collection = ${q(node).children('[instanceof WebExcess.BaseTypes:Page][hiddenInAggregation=false],[instanceof WebExcess.Theme:Meetups][hiddenInAggregation=false]').sortRecursiveByIndex('ASC').get()}
+			collection = ${q(node).children('[instanceof WebExcess.BaseTypes:Page][hiddenInAggregation=false],[instanceof WebExcess.Theme:Meetups][hiddenInAggregation=false],[instanceof WebExcess.Theme:MeetupsArchive][hiddenInAggregation=false]').sortRecursiveByIndex('ASC').get()}
 			itemName = 'node'
 			itemRenderer = TYPO3.TypoScript:Case {
 				isMeetups {

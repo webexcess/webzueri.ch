@@ -57,6 +57,6 @@ prototype(WebExcess.BaseTypes:PageObject.Body) {
 	}
 
 	parts.footer = TYPO3.TypoScript:Array {
-		credits = '<p>© 2017, WebZürich. Template by <a href="http://www.designerdada.com" target="_blank">DesignerDada.com</a>, implemented for <a href="https://neos.io" target="_blank">Neos</a> by <a href="https://webexcess.ch" target="_blank">webexcess</a> - checkout on <a href="https://github.com/">GitHub</a>.</p>'
+		credits = '<p>© 2017, WebZürich. Template by <a href="http://www.designerdada.com" target="_blank">DesignerDada.com</a>, implemented for <a href="https://neos.io" target="_blank">Neos</a> by <a href="https://webexcess.ch" target="_blank">webexcess</a> - checkout on <a href="https://github.com/webexcess/webzueri.ch" target="_blank">GitHub</a>.</p>'
 	}
 }

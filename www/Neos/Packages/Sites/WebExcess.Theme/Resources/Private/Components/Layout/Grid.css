@@ -1,0 +1,15 @@
+.column + .column {
+	margin-top: 4rem;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.column + .column {
+		margin-top: inherit;
+	}
+}
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+*/

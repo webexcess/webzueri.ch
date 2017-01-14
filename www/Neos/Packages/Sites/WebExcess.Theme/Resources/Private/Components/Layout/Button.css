@@ -1,0 +1,21 @@
+.basetype-button {
+	.btn {
+		display: block;
+		text-transform: uppercase;
+		font-size: 1rem;
+	}
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.basetype-button {
+		.btn {
+			display: inline-block;
+		}
+	}
+}
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+}
+*/
