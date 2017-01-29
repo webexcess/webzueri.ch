@@ -8,7 +8,12 @@ prototype(WebExcess.Theme:MeetupTalkObject) < prototype(TYPO3.TypoScript:Tag) {
 			tagName = 'div'
 			attributes.class = 'media-left'
 
-			content = ${'<img class="media-object" style="max-width: none;" src="https://twitter.com/' + (!String.isBlank(talkNode.properties.twitterHandle) ? talkNode.properties.twitterHandle : 'webzuerich') + '/profile_image?size=bigger" />'}
+			content = WebExcess.BaseTypes:ImageObject {
+				asset = ${q(talkNode).property('imageAsset')}
+				attributes.class = 'media-object'
+				attributes.style = 'max-width: none; width: 73px;'
+			}
+			content.@process.ifEmpty = ${Type.isObject(q(talkNode).property('imageAsset')) ? value : '<img class="media-object" style="max-width: none;" src="https://twitter.com/' + (!String.isBlank(talkNode.properties.twitterHandle) ? talkNode.properties.twitterHandle : 'webzuerich') + '/profile_image?size=bigger" />'}
 		}
 
 		mediaBody = TYPO3.TypoScript:Tag {
@@ -17,11 +22,30 @@ prototype(WebExcess.Theme:MeetupTalkObject) < prototype(TYPO3.TypoScript:Tag) {
 
 			content = TYPO3.TypoScript:Array {
 				title = ${'<h4 class="media-heading">' + talkNode.properties.headingText + '</h4>'}
-				person = ${'<p><a href="https://twitter.com/' + String.replace(talkNode.properties.twitterHandle, '@', '') + '" target="_blank">' + talkNode.properties.personName + '</a></p>'}
+				person = WebExcess.Theme:MeetupTalkLinkObject {
+					node = ${talkNode}
+				}
 				text = ${talkNode.properties.paragraphText}
 			}
 
 		}
 
+	}
+}
+
+prototype(WebExcess.Theme:MeetupTalkLinkObject) < prototype(TYPO3.TypoScript:Tag) {
+	tagName = 'p'
+	node = ${node}
+	@context.node = ${this.node}
+
+	content = TYPO3.TypoScript:Tag {
+		tagName = 'a'
+		attributes {
+			href = ${node.properties.twitterHandle}
+			href.@process.ifLinkFallBackToTwitterHandle = ${String.substr(value, 0, 4) == 'http' ? value : 'https://twitter.com/' + String.replace(talkNode.properties.twitterHandle, '@', '')}
+			href.@if.notBlank = ${!String.isBlank(node.properties.twitterHandle)}
+			target = '_blank'
+		}
+		content = ${node.properties.personName}
 	}
 }

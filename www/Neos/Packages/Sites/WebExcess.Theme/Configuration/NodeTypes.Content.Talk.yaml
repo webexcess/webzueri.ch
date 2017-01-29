@@ -6,10 +6,17 @@
     'WebExcess.BaseTypes:Paragraph.ui': true
     'WebExcess.BaseTypes:Heading.properties.headingText--inplace': true
     'WebExcess.BaseTypes:Paragraph.properties.paragraphText--inplace': true
+    'WebExcess.BaseTypes:Image.properties.imageAsset--inspector': true
   ui:
     label: 'Talk'
     icon: 'icon-user'
     group: 'themetypes'
+    inspector:
+      groups:
+        image:
+          label: 'WebExcess.BaseTypes:NodeTypes.Image:groups.image'
+          icon: icon-image
+          tab: default
   properties:
     'headingText':
       ui:
@@ -37,8 +44,9 @@
     'twitterHandle':
       ui:
         inlineEditable: true
+        reloadIfChanged: true
         aloha:
-          placeholder: '@handle'
+          placeholder: '@handle or url'
           'format': []
           'table': []
           'link': []
@@ -49,3 +57,13 @@
             'formatlessPasteOption': true
             'strippedElements': ['a', 'br']
             'autoparagraph': false
+    'imageAsset':
+      ui:
+        label: 'Override Twitter Image'
+        inspector:
+          editorOptions:
+            crop:
+              aspectRatio:
+                locked:
+                  width: 1
+                  height: 1

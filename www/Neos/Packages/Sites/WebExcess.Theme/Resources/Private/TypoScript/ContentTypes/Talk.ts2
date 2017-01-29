@@ -7,7 +7,13 @@ prototype(WebExcess.Theme:Talk) < prototype(WebExcess.BaseTypes:Content) {
 		mediaLeft = TYPO3.TypoScript:Tag {
 			tagName = 'div'
 			attributes.class = 'media-left'
-			content = ${'<img class="media-object" style="max-width: none; width: 73px;" src="' + (!String.isBlank(node.properties.twitterHandle) ? 'https://twitter.com/' + node.properties.twitterHandle + '/profile_image?size=bigger' : '/_Resources/Static/Packages/TYPO3.Neos/Images/dummy-image.png') + '" />'}
+
+			content = WebExcess.BaseTypes:ImageObject {
+				asset = ${q(node).property('imageAsset')}
+				attributes.class = 'media-object'
+				attributes.style = 'max-width: none; width: 73px;'
+			}
+			content.@process.ifEmpty = ${Type.isObject(q(node).property('imageAsset')) ? value : '<img class="media-object" style="max-width: none;" src="https://twitter.com/' + (!String.isBlank(node.properties.twitterHandle) ? node.properties.twitterHandle : 'webzuerich') + '/profile_image?size=bigger" />'}
 		}
 
 		mediaBody = TYPO3.TypoScript:Tag {
